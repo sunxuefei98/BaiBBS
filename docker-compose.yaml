@@ -1,0 +1,34 @@
+version: '3'
+services:
+  web:
+    build:
+      context: ./
+      args:
+        - PROJECT_HOME=$LARAVEL_HOME
+    ports:
+      - 8080:80
+      - 8000:8000
+    hostname: Laravel
+    volumes:
+      - $LARAVEL_HOME/:$LARAVEL_HOME
+    depends_on:
+      - db
+      - redis
+    links:
+      - db:mysql-host
+      - redis:redis-host
+
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
+
+  db:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: 111111
+      MYSQL_DATABASE: session_08
+
