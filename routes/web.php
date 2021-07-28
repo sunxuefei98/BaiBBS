@@ -35,3 +35,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //显示用户个人信息页面,显示编辑个人资料页面,处理 edit 页面提交的更改
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
+

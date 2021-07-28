@@ -29,7 +29,7 @@
       {{-- 用户发布的内容 --}}
       <div class="card ">
         <div class="card-body">
-          No data X_X
+          No any data X_X
         </div>
       </div>
 

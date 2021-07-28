@@ -63,9 +63,9 @@
 {{--                                        {{ __('Logout') }}--}}
 {{--                                    </a>--}}
 
-                                    <a class="dropdown-item" href="">Your profile</a>
+                                    <a class="dropdown-item" href="{{ route('users.show', Auth::id()) }}">Your profile</a>
 
-                                    <a class="dropdown-item" href="">Settings</a>
+                                    <a class="dropdown-item" href="{{ route('users.edit', Auth::id()) }}">Settings</a>
 
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" id="logout" href="#">
