@@ -16,8 +16,8 @@
 
         <div class="card-header bg-transparent">
           <ul class="nav nav-pills">
-            <li class="nav-item"><a class="nav-link active" href="#">Last reply</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Latest release</a></li>
+            <li class="nav-item"><a class="nav-link {{ active_class( ! if_query('order', 'recent')) }}" href="{{ Request::url() }}?order=default">Latest reply</a></li>
+            <li class="nav-item"><a class="nav-link {{ active_class(if_query('order', 'recent')) }}" href="{{ Request::url() }}?order=recent">Latest release</a></li>
           </ul>
         </div>
 

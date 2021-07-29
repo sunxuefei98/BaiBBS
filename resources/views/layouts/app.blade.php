@@ -36,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active"><a class="nav-link" href="{{ route('topics.index') }}">话题</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="{{ route('topics.index') }}">All topics</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 1) }}">分享</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 2) }}">教程</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 3) }}">问答</a></li>
