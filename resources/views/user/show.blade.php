@@ -11,8 +11,9 @@
 
 
       <div class="card ">
-        <img class="card-img-top" src="https://cdn.learnku.com/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/600" alt="{{ $user->name }}">
+        <img class="card-img-top" src="{{ url($user->avatar)}}" alt="{{ $user->name }}">
         <div class="card-body">
+
           <h4><strong>Introduction</strong></h4>
           <p>{{ $user->introduction }}</p>
           <hr>
@@ -36,7 +37,6 @@
 
       </div>
       <hr>
-
 
 
       {{-- 用户发布的内容 --}}

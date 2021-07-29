@@ -27,7 +27,7 @@ class ImageUploadHandler
         $filename = $file_prefix . '_' . time() . '_' . Str::random(10) . '.' . $extension;
 
         // 如果上传的不是图片将终止操作
-        if ( ! in_array($extension, $this->allowed_ext)) {
+        if (!in_array($extension, $this->allowed_ext)) {
             return false;
         }
 
@@ -35,7 +35,7 @@ class ImageUploadHandler
         $file->move($upload_path, $filename);
 
         return [
-            'path' => config('app.url') . "/$folder_name/$filename"
+            'path' => "/$folder_name/$filename"
         ];
     }
 }
