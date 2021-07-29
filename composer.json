@@ -12,7 +12,8 @@
     "fideloper/proxy": "^4.4",
     "laravel/framework": "^6.20.26",
     "laravel/tinker": "^2.5",
-    "laravel/ui": "^1.2"
+    "laravel/ui": "^1.2",
+    "summerblue/laravel-active": "6.*"
   },
   "require-dev": {
     "barryvdh/laravel-debugbar": "~3.2",
