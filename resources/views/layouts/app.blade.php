@@ -21,84 +21,81 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<div id="app">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
 
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'BaiBBS') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active"><a class="nav-link" href="{{ route('topics.index') }}">All topics</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 1) }}">分享</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 2) }}">教程</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 3) }}">问答</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 4) }}">公告</a></li>
-                    </ul>
+        <div class="container">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                {{ config('app.name', 'BaiBBS') }}
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{ Auth::user()->avatar }}" class="img-responsive img-circle" width="30px" height="30px">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="{{ route('topics.index') }}">All topics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 1) }}">分享</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 2) }}">教程</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 3) }}">问答</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 4) }}">公告</a></li>
+                </ul>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-{{--                                    <a class="dropdown-item" href="{{ route('logout') }}"--}}
-{{--                                       onclick="event.preventDefault();--}}
-{{--                                                     document.getElementById('logout-form').submit();">--}}
-{{--                                        {{ __('Logout') }}--}}
-{{--                                    </a>--}}
-
-                                    <a class="dropdown-item" href="{{ route('users.show', Auth::id()) }}">Your profile</a>
-
-                                    <a class="dropdown-item" href="{{ route('users.edit', Auth::id()) }}">Settings</a>
-
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" id="logout" href="#">
-                                        <form action="{{ route('logout') }}" method="POST">
-                                            {{ csrf_field() }}
-                                            <button class="btn btn-block btn-danger" type="submit" name="button">Log out</button>
-                                        </form>
-                                    </a>
-                                </div>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Authentication Links -->
+                    @guest
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
-                        @endguest
-                    </ul>
-                </div>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <img src="{{ Auth::user()->avatar }}" class="img-responsive img-circle" width="30px" height="30px">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+
+
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('users.show', Auth::id()) }}"><i class="far fa-user mr-2"></i>Your profile</a>
+
+                                <a class="dropdown-item" href="{{ route('users.edit', Auth::id()) }}"><i class="far fa-edit mr-2"></i>Settings</a>
+
+
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" id="logout" href="#">
+                                    <form action="{{ route('logout') }}" method="POST" onsubmit="return confirm('Are you sure you want to sign out?');">
+                                        {{ csrf_field() }}
+                                        <button class="btn btn-block btn-danger" type="submit" name="button">Log out</button>
+                                    </form>
+                                </a>
+                            </div>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
             </div>
-        </nav>
+            </li>
+            @endguest
+            </ul>
+        </div>
+</div>
+</nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+<main class="py-4">
+    @yield('content')
+</main>
 
-        @include('layouts._footer')
+@include('layouts._footer')
 
-    </div>
+</div>
 </body>
 </html>
