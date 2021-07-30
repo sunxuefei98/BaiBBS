@@ -19,6 +19,9 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
+    @yield('styles')
+
 </head>
 <body>
 <div id="app">
@@ -96,6 +99,12 @@
 
 @include('layouts._footer')
 
-</div>
+
+<!-- Scripts -->
+<script src="{{ mix('js/app.js') }}"></script>
+
+@yield('scripts')
+
+
 </body>
 </html>
