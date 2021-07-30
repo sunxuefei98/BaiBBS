@@ -23,3 +23,6 @@
 <div class="mt-4 pt-1">
   {!! $topics->render() !!}
 </div>
+
+
+@if($loop->first) border-top-0 @endif"
