@@ -30,7 +30,14 @@
                   @include('shared._error')
 
                   <div class="form-group">
-                    <input class="form-control" type="text" name="title" value="{{ old('title', $topic->title ) }}" placeholder="Please type a title" required />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="title"
+                      value="{{ old('title', $topic->title ) }}"
+                      placeholder="Please type a title"
+                      required
+                    />
                   </div>
 
                   <div class="form-group">
@@ -43,11 +50,22 @@
                   </div>
 
                   <div class="form-group">
-                    <textarea name="body" class="form-control" id="editor" rows="6" placeholder="At least 3 characters " required>{{ old('body', $topic->body ) }}</textarea>
+                    <textarea
+                      name="body"
+                      class="form-control"
+                      id="editor"
+                      rows="6"
+                      placeholder="At least 3 characters "
+                      required
+                    >{{ old('body', $topic->body ) }}</textarea>
                   </div>
 
                   <div class="well well-sm">
-                    <button type="submit" class="btn btn-primary"><i class="far fa-save mr-2" aria-hidden="true"></i> Save </button>
+                    <button type="submit" class="btn btn-primary"><i
+                        class="far fa-save mr-2"
+                        aria-hidden="true"
+                      ></i> Save
+                    </button>
                   </div>
                 </form>
         </div>
@@ -62,27 +80,27 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('css/simditor.css') }}">
 @stop
 
-@section('scripts')
+@push('scripts')
+
   <script type="text/javascript" src="{{ asset('js/module.js') }}"></script>
   <script type="text/javascript" src="{{ asset('js/hotkeys.js') }}"></script>
   <script type="text/javascript" src="{{ asset('js/uploader.js') }}"></script>
   <script type="text/javascript" src="{{ asset('js/simditor.js') }}"></script>
-
   <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
       var editor = new Simditor({
         textarea: $('#editor'),
         upload: {
           url: '{{ route('topics.upload_image') }}',
           params: {
-            _token: '{{ csrf_token() }}'
+            _token: '{{ csrf_token() }}',
           },
           fileKey: 'upload_file',
           connectionCount: 3,
-          leaveConfirm: 'The file is being uploaded, closing this page will cancel the upload. '
+          leaveConfirm: 'The file is being uploaded, closing this page will cancel the upload. ',
         },
         pasteImage: true,
       });
     });
   </script>
-@stop
+@endpush

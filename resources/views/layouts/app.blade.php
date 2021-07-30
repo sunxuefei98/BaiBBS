@@ -8,10 +8,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'BaiBBS') }}</title>
+    <title>@yield('title', 'BaiBBS') - Share your ideas</title>
+    <meta name="description" content="@yield('description', 'BaiBBS')" />
+{{--    <title>{{ config('app.name', 'BaiBBS') }}</title>--}}
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -101,10 +103,8 @@
 
 
 <!-- Scripts -->
-<script src="{{ mix('js/app.js') }}"></script>
 
-@yield('scripts')
-
+@stack('scripts')
 
 </body>
 </html>
