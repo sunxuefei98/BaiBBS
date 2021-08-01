@@ -43,10 +43,23 @@
         <div class="card">
           <div class="card-body">
             <ul class="nav nav-tabs">
-              <li class="nav-item"><a class="nav-link active bg-transparent" href="#">His topics</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">His replies</a></li>
+              <li class="nav-item">
+                <a class="nav-link bg-transparent {{ active_class(if_query('tab', null)) }}" href="{{ route('users.show', $user->id) }}">
+                  His topics
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link bg-transparent {{ active_class(if_query('tab', 'replies')) }}" href="{{ route('users.show', [$user->id, 'tab' => 'replies']) }}">
+                  His replies
+                </a>
+              </li>
             </ul>
-            @include('topics._topic_list', ['topics' => $user->topics()->recent()->paginate(5)])
+            @if (if_query('tab', 'replies'))
+              @include('user._replies', ['replies' => $user->replies()->with('topic')->recent()->paginate(5)])
+            @else
+              @include('user._topics', ['topics' => $user->topics()->recent()->paginate(5)])
+            @endif
+{{--            @include('topics._topic_list', ['topics' => $user->topics()->recent()->paginate(5)])--}}
           </div>
         </div>
 

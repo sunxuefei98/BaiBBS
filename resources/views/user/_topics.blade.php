@@ -16,7 +16,7 @@
   </ul>
 
 @else
-  <div class="empty-block">Do data ~_~ </div>
+  <div class="empty-block">No any data X_X </div>
 @endif
 
 {{-- 分页 --}}
@@ -24,5 +24,3 @@
   {!! $topics->render() !!}
 </div>
 
-
-@if($loop->first) border-top-0 @endif"
