@@ -10,6 +10,19 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    /**
+     * 访问器-头像链接字段
+     * @param string $value
+     * @return string
+     */
+    public function getAvatarAttribute($value)
+    {
+        if (empty($value)) {
+            return 'https://cdn.learnku.com/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/60';
+        }
+        return $value;
+    }
+
     public function isAuthorOf($model)
     {
         return $this->id == $model->user_id;
