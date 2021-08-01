@@ -42,10 +42,10 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active"><a class="nav-link" href="{{ route('topics.index') }}">All topics</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 1) }}">分享</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 2) }}">教程</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 3) }}">问答</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 4) }}">公告</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 1) }}">Share</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 2) }}">Tutorials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 3) }}">Q&A</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('categories.show', 4) }}">Announcement</a></li>
                 </ul>
 
 

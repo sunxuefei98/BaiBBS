@@ -18,7 +18,7 @@ class User extends Authenticatable
     public function getAvatarAttribute($value)
     {
         if (empty($value)) {
-            return 'https://cdn.learnku.com/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/60';
+            return 'https://cdn.learnku.com/uploads/images/201710/30/1/TrJS40Ey5k.png';
         }
         return $value;
     }
