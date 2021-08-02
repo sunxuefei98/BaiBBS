@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="/login">Entry</a>
+                    <a href="/topics">Entry</a>
                 </div>
             </div>
         </div>
