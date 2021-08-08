@@ -8673,7 +8673,6 @@ button.bg-dark:focus {
 
 .pb-4,
 .py-4 {
-  padding: 40px;
   padding-bottom: 1.5rem !important;
 }
 
@@ -17638,5 +17637,14 @@ body {
 .topic-reply .meta {
   font-size: 0.9em;
   color: #b3b3b3;
+}
+
+/* User register page */
+
+.register-page img.captcha {
+  cursor: pointer;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 3px;
 }
 
