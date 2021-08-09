@@ -3,13 +3,18 @@
 namespace App\Models;
 
 use App\Models\Topic;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 
 
-class User extends Authenticatable
+
+class User extends Authenticatable implements MustVerifyEmailContract
 {
+
+    use Notifiable, MustVerifyEmailTrait;
+
     /**
      * 访问器-头像链接字段
      * @param string $value
@@ -27,8 +32,6 @@ class User extends Authenticatable
     {
         return $this->id == $model->user_id;
     }
-
-    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
